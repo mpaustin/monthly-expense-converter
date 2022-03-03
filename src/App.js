@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import ReadFromFile from './ReadFromFile';
 
 function App() {
+
+  const [file, setFile] = useState();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Select a .csv file to convert
+      <div>
+        <input
+          type='file'
+          accept='.csv'
+          id='csvFile'
+          onChange={(e) => {
+              e.preventDefault();
+              setFile(e.target.files[0]);
+          }}
+        />
+      </div>
+      <button onClick={() => ReadFromFile(file)} >Convert!</button>
     </div>
   );
 }
