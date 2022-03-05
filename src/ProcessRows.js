@@ -20,7 +20,11 @@ export default function ProcessRows(text, setDownload) {
                 rowCat = rowArr[5].replaceAll('"','');
             }
             if (rowCat === mintCategories[i]) {
-                catTotal += Number(rowArr[3].replaceAll('"', ''));
+                if (rowArr[4] === '"credit"') {
+                    catTotal -= Number(rowArr[3].replaceAll('"', ''));
+                } else {
+                    catTotal += Number(rowArr[3].replaceAll('"', ''));
+                }
             }
         });
         mintSummed.push([mintCategories[i], catTotal.toFixed(2)]);
