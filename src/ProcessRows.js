@@ -9,6 +9,8 @@ export default function ProcessRows(text, setDownload) {
 
     const rows = text.slice(text.indexOf('\n') + 1).split('\n');
 
+    // before importing expenses csv, need to replaceAll commas with null
+
     // set array of matched values
     // iterate through that array, for each category sum up the total and assign to a tuples of [category, summedAmount]
     for (let i = 0; i < mintCategories.length; i++) {
@@ -20,7 +22,7 @@ export default function ProcessRows(text, setDownload) {
                 rowCat = rowArr[5].replaceAll('"','');
             }
             if (rowCat === mintCategories[i]) {
-                if (rowArr[4] === '"credit"') {
+                if (rowArr[4] === 'credit') {
                     catTotal -= Number(rowArr[3].replaceAll('"', ''));
                 } else {
                     catTotal += Number(rowArr[3].replaceAll('"', ''));

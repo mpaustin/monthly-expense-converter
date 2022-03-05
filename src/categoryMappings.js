@@ -48,7 +48,7 @@ export const categoryMappings = [
     ['Laundry','Household_Hygiene'],
     ['Legal','Business_Portfolio'],
     ['Loan Insurance','Misc'],
-    ['Loan Payment','Misc'],
+    ['Loan Payment','Investment_Transfer'],
     ['Loan Principal','Misc'],
     ['Loans','Misc'],
     ['Misc Expenses','Misc'],
