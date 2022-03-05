@@ -84,7 +84,7 @@ export const categoryMappings = [
     ['Withdrawal','Investment_Transfer'],
 ];
 
-const fireCategories = [
+export const fireCategories = [
     'Rent',
     'Internet',
     'Cell_Phone',
@@ -101,7 +101,10 @@ const fireCategories = [
     'School_Job',
     'Health_Fitness',
     'Real_Estate_Investment',
-
+    '',
+    '',
+    '',
+    '',
     'Restaurants',
     'Fast_Food',
     'Alcohol_Bars',
@@ -111,9 +114,13 @@ const fireCategories = [
     'Gifts_Donations',
     'Business_Portfolio',
     'Misc',
-
+    '',
+    '',
+    '',
+    '',
+    '',
     'Salary',
     'Supplemental_Income',
-
+    '',
     'Investment_Transfer',
 ];

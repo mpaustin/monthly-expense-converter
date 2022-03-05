@@ -1,5 +1,5 @@
 import { mintCategories } from "./mintCategories";
-import { categoryMappings } from "./categoryMappings";
+import { categoryMappings, fireCategories } from "./categoryMappings";
 
 export default function ProcessRows(text, setDownload) {
     const delimiter = ',';
@@ -41,13 +41,13 @@ export default function ProcessRows(text, setDownload) {
         }
     });
 
-    // create csv export array
-    const categories = Object.keys(fireSummed);
-    categories.forEach(cat => {
+    // create csv export array in correct order
+    fireCategories.forEach(fireCat => {
         final.push([
-            cat, fireSummed[cat].toFixed(2)
+            fireCat, fireSummed[fireCat]?.toFixed(2)
         ]);
     });
+    
 
     setDownload(final);
 };
