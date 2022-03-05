@@ -34,7 +34,7 @@ export const categoryMappings = [
     ['Hair','Haircut'],
     ['Health & Fitness','Health_Fitness'],
     ['Health Insurance','Health_Fitness'],
-    ['Hide from Budgets & Trends',''],
+    ['Hide from Budgets & Trends','Investment_Transfer'],
     ['Hobbies','Shopping'],
     ['Home Insurance','Home_Insurance'],
     ['Home Supplies','Household_Hygiene'],

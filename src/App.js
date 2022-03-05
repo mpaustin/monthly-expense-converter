@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import './App.css';
 import ReadFromFile from './ReadFromFile';
+import { CSVLink } from "react-csv";
 
 function App() {
 
   const [file, setFile] = useState();
+  const [download, setDownload] = useState();
 
   return (
     <div className="App">
@@ -20,7 +22,13 @@ function App() {
           }}
         />
       </div>
-      <button onClick={() => ReadFromFile(file)} >Convert!</button>
+      <button onClick={() => ReadFromFile(file, setDownload)} >Convert!</button>
+      {
+        download && 
+        <CSVLink data={download} >
+          Download
+        </CSVLink>
+      }
     </div>
   );
 }

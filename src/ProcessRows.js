@@ -1,10 +1,11 @@
 import { mintCategories } from "./mintCategories";
 import { categoryMappings } from "./categoryMappings";
 
-export default function ProcessRows(text) {
+export default function ProcessRows(text, setDownload) {
     const delimiter = ',';
     const mintSummed = [];
     const fireSummed = {};
+    const final = [['Category', 'Amount']];
 
     const rows = text.slice(text.indexOf('\n') + 1).split('\n');
 
@@ -40,12 +41,13 @@ export default function ProcessRows(text) {
         }
     });
 
-    // truncate each amount to two decimal places
+    // create csv export array
     const categories = Object.keys(fireSummed);
     categories.forEach(cat => {
-        fireSummed[cat] = fireSummed[cat].toFixed(2);
-    })
+        final.push([
+            cat, fireSummed[cat].toFixed(2)
+        ]);
+    });
 
-    console.log('fireSummed', fireSummed);
-    return fireSummed;
+    setDownload(final);
 };

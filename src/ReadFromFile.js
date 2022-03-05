@@ -1,15 +1,12 @@
 import ProcessRows from './ProcessRows';
 
-export default function ReadFromFile(file) {
+export default function ReadFromFile(file, setDownload) {
     let text = '';
-    let processed = [];
 
     const reader = new FileReader();
     reader.onload = (e) => {
         text = e.target.result;
-        processed = ProcessRows(text);
+        ProcessRows(text, setDownload);
     }
     reader.readAsText(file);
-
-    return processed;
 };
