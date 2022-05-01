@@ -71,7 +71,7 @@ export const categoryMappings = [
     ['Shipping','Business_Portfolio'],
     ['Shopping','Shopping'],
     ['Sporting Events','Entertainment'],
-    ['Sporting Goods','Health_Fitness'],
+    ['Sporting Goods','Shopping'],
     ['Sports','Health_Fitness'],
     ['State Tax','Misc'],
     ['Student Loan','School_Job'],
