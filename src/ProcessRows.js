@@ -22,7 +22,7 @@ export default function ProcessRows(text, setDownload) {
                 rowCat = rowArr[5].replaceAll('"','');
             }
             if (rowCat === mintCategories[i]) {
-                if (rowArr[4] === 'credit') {
+                if (rowArr[4] === '"credit"') {
                     catTotal -= Number(rowArr[3].replaceAll('"', ''));
                 } else {
                     catTotal += Number(rowArr[3].replaceAll('"', ''));
