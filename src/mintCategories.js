@@ -5,6 +5,7 @@ export const mintCategories = [
     'ATM Fee',
     'Auto & Transport',
     'Auto Insurance',
+    'Auto Payment',
     'Bank Fee',
     'Bonus',
     'Books',

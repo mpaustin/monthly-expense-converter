@@ -5,6 +5,7 @@ export const categoryMappings = [
     ['ATM Fee','Misc'],
     ['Auto & Transport','Travel_Vacation'],
     ['Auto Insurance','Car_Insurance'],
+    ['Auto Payment','Car'],
     ['Bank Fee','Misc'],
     ['Bonus','Supplemental_Income'],
     ['Books','Books_Podcasts'],
