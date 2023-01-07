@@ -40,6 +40,7 @@ export const mintCategories = [
     'Home Insurance',
     'Home Supplies',
     'Hotel',
+    'HSA Contribution',
     'Income',
     'Interest Income',
     'Internet',
