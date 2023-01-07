@@ -16,7 +16,7 @@ export default function ProcessRows(text, setDownload) {
     for (let i = 0; i < mintCategories.length; i++) {
         let catTotal = 0.00;
         rows.forEach(row => {
-            const rowArr = row.split(delimiter);
+            const rowArr = row.replaceAll('ASF, DBA', 'ASF DBA').split(delimiter); // hacky replace to fix extra comma in Insperity rows
             let rowCat = 'No category found';
             if (rowArr[5]) {
                 rowCat = rowArr[5].replaceAll('"','');
