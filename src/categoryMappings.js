@@ -40,6 +40,7 @@ export const categoryMappings = [
     ['Home Insurance','Home_Insurance'],
     ['Home Supplies','Household_Hygiene'],
     ['Hotel','Travel_Vacation'],
+    ['HSA Contribution','Salary'],
     ['Income','Supplemental_Income'],
     ['Interest Income','Supplemental_Income'],
     ['Internet','Internet'],
