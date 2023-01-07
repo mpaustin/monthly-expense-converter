@@ -126,3 +126,8 @@ export const fireCategories = [
     '',
     'Investment_Transfer',
 ];
+
+export const creditNormalCategories = [
+    'Salary',
+    'Supplemental_Income',
+];

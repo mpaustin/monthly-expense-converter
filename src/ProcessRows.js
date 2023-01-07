@@ -1,5 +1,5 @@
 import { mintCategories } from "./mintCategories";
-import { categoryMappings, fireCategories } from "./categoryMappings";
+import { categoryMappings, fireCategories, creditNormalCategories } from "./categoryMappings";
 
 export default function ProcessRows(text, setDownload) {
     const delimiter = ',';
@@ -49,11 +49,12 @@ export default function ProcessRows(text, setDownload) {
 
     // create csv export array in correct order
     fireCategories.forEach(fireCat => {
-        final.push([
-            fireCat, fireSummed[fireCat]?.toFixed(2)
-        ]);
+        const value = fireSummed[fireCat]?.toFixed(2);
+
+        // switch sign of credit-normal categories, such as Salary
+        const normalizedValue = creditNormalCategories.includes(fireCat) ? -value : value;
+        final.push([fireCat, normalizedValue]);
     });
     
-
     setDownload(final);
 };
