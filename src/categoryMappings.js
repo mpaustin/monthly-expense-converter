@@ -66,6 +66,7 @@ export const categoryMappings = [
     ['REI','Real_Estate_Investment'],
     ['Reimbursement','Misc'],
     ['Rental Car & Taxi','Travel_Vacation'],
+    ['Rental Income','Supplemental_Income'],
     ['Restaurants','Restaurants'],
     ['Ride Share','Travel_Vacation'],
     ['Sell','Investment_Transfer'],

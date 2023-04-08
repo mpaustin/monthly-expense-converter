@@ -66,6 +66,7 @@ export const mintCategories = [
     'REI',
     'Reimbursement',
     'Rental Car & Taxi',
+    'Rental Income',
     'Restaurants',
     'Ride Share',
     'Sell',
