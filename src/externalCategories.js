@@ -72,6 +72,7 @@ export const externalCategories = [
     'Rent',
     'Rental Car & Taxi',
     'Rental Income',
+    'Retirement Contributions',
     'Restaurants',
     'Ride Share',
     'Sell',
