@@ -1,1 +1,1 @@
-Converts Mint-exported expenses into categories I use for my personal net worth tracking spreadsheet.
+Converts Empower-exported expenses into categories I use for my personal net worth tracking spreadsheet.
