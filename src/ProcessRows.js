@@ -1,55 +1,76 @@
-import { externalCategories } from "./externalCategories";
-import { categoryMappings, fireCategories } from "./categoryMappings";
+import { monarchToFireMappings, MappingOrder, FireCategories } from './categoryMappings';
 
 export default function ProcessRows(text, setDownload) {
     const delimiter = ',';
-    const mintSummed = [];
+    const monarchSummed = [];
     const fireSummed = {};
     const final = [['Category', 'Amount']];
 
     const rows = text.slice(text.indexOf('\n') + 1).split('\n');
 
-    // before importing expenses csv, need to replaceAll commas with null
-
-    // set array of matched values
-    // iterate through that array, for each category sum up the total and assign to a tuples of [category, summedAmount]
-    for (let i = 0; i < externalCategories.length; i++) {
-        let catTotal = 0.00;
-        rows.forEach(row => {
+    // Process Monarch-exported CSV format
+    // Column 2: Merchant, Column 3: Category, Column 7: Amount
+    rows.forEach(row => {
+        if (row.trim()) {  // Skip empty rows
             const rowArr = row.split(delimiter);
             console.log(rowArr);
-            let rowCat = 'No category found';
-            if (rowArr[5]) {
-                rowCat = rowArr[3].replaceAll('\"','');
+            
+            if (rowArr.length >= 8) {  // Ensure we have enough columns
+                const monarchCategory = rowArr[2].replaceAll('"', '').trim();  // Category is column 3 (index 2)
+                const amount = rowArr[6].replaceAll('"', '').trim();  // Amount is column 7 (index 6)
+                
+                if (monarchCategory && amount && monarchCategory !== 'Category') {  // Skip header row
+                    const numAmount = Number(amount);
+                    if (!isNaN(numAmount)) {
+                        // Find if this category already exists in monarchSummed
+                        const existingIndex = monarchSummed.findIndex(item => item[0] === monarchCategory);
+                        if (existingIndex >= 0) {
+                            // Add to existing category
+                            monarchSummed[existingIndex][1] = (Number(monarchSummed[existingIndex][1]) + numAmount).toFixed(2);
+                        } else {
+                            // Add new category
+                            monarchSummed.push([monarchCategory, numAmount.toFixed(2)]);
+                        }
+                    }
+                }
             }
-            if (rowCat === externalCategories[i]) {
-                catTotal += Number(rowArr[5].replaceAll('"', ''));
-            }
-        });
-        mintSummed.push([externalCategories[i], catTotal.toFixed(2)]);
-    };
+        }
+    });
 
-    // for each FIRE category, sum up total of external categories and assign to tuples of [category, total]
-    categoryMappings.forEach(category => {
-        let total = 0.00;
-        mintSummed.forEach(extCategory => {
-            if (extCategory[0] === category[0]) {
-                total += Number(extCategory[1]);
-            }
-        });
+    // Map Monarch categories to Fire categories and sum up totals
+    monarchSummed.forEach(monarchCategory => {
+        const monarchCatName = monarchCategory[0];
+        const amount = Number(monarchCategory[1]);
         
-        if (fireSummed[category[1]]) {
-            fireSummed[category[1]] += total;
+        // Find the corresponding Fire category mapping
+        const mapping = monarchToFireMappings.find(mapping => mapping[0] === monarchCatName);
+        
+        if (mapping) {
+            const fireCategory = mapping[1];
+            if (fireSummed[fireCategory]) {
+                fireSummed[fireCategory] += amount;
+            } else {
+                fireSummed[fireCategory] = amount;
+            }
         } else {
-            fireSummed[category[1]] = total;
+            // If no mapping found, add to Miscellaneous
+            if (fireSummed[FireCategories.MISC]) {
+                fireSummed[FireCategories.MISC] += amount;
+            } else {
+                fireSummed[FireCategories.MISC] = amount;
+            }
         }
     });
 
     // create csv export array in correct order
-    fireCategories.forEach(fireCategory => {
+    MappingOrder.forEach(fireCategory => {
         const value = Math.abs(fireSummed[fireCategory]?.toFixed(2) ?? 0.00);
         final.push([fireCategory, value]);
     });
+    
+    console.log('Monarch categories found:', monarchSummed);
+    console.log('Fire categories mapped:', fireSummed);
+    console.log('Final output:', final);
     
     setDownload(final);
 };
