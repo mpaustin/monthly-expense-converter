@@ -34,7 +34,7 @@ export const MonarchCategories = {
 
   // Expenses - Food & Dining
   GROCERIES: 'Groceries',
-  RESTAURANTS_BARS: 'Restaurants & Bars',
+  RESTAURANTS: 'Restaurants',
   COFFEE_SHOPS: 'Coffee Shops',
   FAST_FOOD: 'Fast Food',
   ALCOHOL_BARS: 'Alcohol & Bars',
@@ -139,7 +139,7 @@ export const MonarchCategoriesByType = {
     ],
     FOOD_DINING: [
       MonarchCategories.GROCERIES,
-      MonarchCategories.RESTAURANTS_BARS,
+      MonarchCategories.RESTAURANTS,
       MonarchCategories.COFFEE_SHOPS,
       MonarchCategories.FAST_FOOD,
       MonarchCategories.ALCOHOL_BARS

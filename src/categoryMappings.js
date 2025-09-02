@@ -1,3 +1,36 @@
+import { MonarchCategories } from './monarchCategories';
+
+export const FireCategories = {
+    RENT: 'Rent',
+    INTERNET: 'Internet',
+    CELL_PHONE: 'Cell_Phone',
+    UTILITIES: 'Utilities',
+    GROCERIES: 'Groceries',
+    CAR_INSURANCE: 'Car_Insurance',
+    HOME_INSURANCE: 'Home_Insurance',
+    PROPERTY_TAX: 'Property_Tax',
+    GASOLINE: 'Gasoline',
+    CAR: 'Car',
+    HOUSEHOLD_HYGIENE: 'Household_Hygiene',
+    HAIRCUT: 'Haircut',
+    BOOKS_PODCASTS: 'Books_Podcasts',
+    SCHOOL_JOB: 'School_Job',
+    HEALTH_FITNESS: 'Health_Fitness',
+    REAL_ESTATE_INVESTMENT: 'Real_Estate_Investment',
+    RESTAURANTS: 'Restaurants',
+    FAST_FOOD: 'Fast_Food',
+    ALCOHOL_BARS: 'Alcohol_Bars',
+    ENTERTAINMENT: 'Entertainment',
+    SHOPPING: 'Shopping',
+    TRAVEL_VACATION: 'Travel_Vacation',
+    GIFTS_DONATIONS: 'Gifts_Donations',
+    BUSINESS_PORTFOLIO: 'Business_Portfolio',
+    MISC: 'Misc',
+    SALARY: 'Salary',
+    SUPPLEMENTAL_INCOME: 'Supplemental_Income',
+    INVESTMENT_TRANSFER: 'Investment_Transfer'
+  };
+
 export const categoryMappings = [
     ['Advertising', FireCategories.BUSINESS_PORTFOLIO],
     ['Air Travel', FireCategories.TRAVEL_VACATION],
@@ -95,8 +128,6 @@ export const categoryMappings = [
     ['401(k) Contributions', FireCategories.SALARY],
 ];
 
-import { MonarchCategories } from './monarchCategories';
-
 // Monarch categories -> FIRE categories
 export const monarchToFireMappings = [
     // Income
@@ -113,7 +144,7 @@ export const monarchToFireMappings = [
     [MonarchCategories.DONATIONS, FireCategories.GIFTS_DONATIONS],
 
     // Expenses - Auto & Transport
-    [MonarchCategories.AUTO_PAYMENT, FireCategories.AUTO_PAYMENT],
+    [MonarchCategories.AUTO_PAYMENT, FireCategories.CAR],
     [MonarchCategories.PUBLIC_TRANSIT, FireCategories.TRAVEL_VACATION],
     [MonarchCategories.GAS, FireCategories.GASOLINE],
     [MonarchCategories.AUTO_MAINTENANCE, FireCategories.CAR],
@@ -134,7 +165,7 @@ export const monarchToFireMappings = [
 
     // Expenses - Food & Dining
     [MonarchCategories.GROCERIES, FireCategories.GROCERIES],
-    [MonarchCategories.RESTAURANTS_BARS, FireCategories.RESTAURANTS],
+    [MonarchCategories.RESTAURANTS, FireCategories.RESTAURANTS],
     [MonarchCategories.COFFEE_SHOPS, FireCategories.RESTAURANTS],
     [MonarchCategories.FAST_FOOD, FireCategories.FAST_FOOD],
     [MonarchCategories.ALCOHOL_BARS, FireCategories.ALCOHOL_BARS],
@@ -143,8 +174,8 @@ export const monarchToFireMappings = [
     [MonarchCategories.TRAVEL_VACATION, FireCategories.TRAVEL_VACATION],
     [MonarchCategories.ENTERTAINMENT_RECREATION, FireCategories.ENTERTAINMENT],
     [MonarchCategories.PERSONAL, FireCategories.HOUSEHOLD_HYGIENE],
-    [MonarchCategories.PETS, FireCategories.MISCELLANEOUS],
-    [MonarchCategories.FUN_MONEY, FireCategories.MISCELLANEOUS],
+    [MonarchCategories.PETS, FireCategories.MISC],
+    [MonarchCategories.FUN_MONEY, FireCategories.MISC],
 
     // Expenses - Shopping
     [MonarchCategories.SHOPPING, FireCategories.SHOPPING],
@@ -153,8 +184,8 @@ export const monarchToFireMappings = [
     [MonarchCategories.ELECTRONICS, FireCategories.SHOPPING],
 
     // Expenses - Children
-    [MonarchCategories.CHILD_CARE, FireCategories.MISCELLANEOUS],
-    [MonarchCategories.CHILD_ACTIVITIES, FireCategories.MISCELLANEOUS],
+    [MonarchCategories.CHILD_CARE, FireCategories.MISC],
+    [MonarchCategories.CHILD_ACTIVITIES, FireCategories.MISC],
 
     // Expenses - Education
     [MonarchCategories.STUDENT_LOANS, FireCategories.SCHOOL_JOB],
@@ -171,7 +202,7 @@ export const monarchToFireMappings = [
     [MonarchCategories.FINANCIAL_LEGAL_SERVICES, FireCategories.MISC],
     [MonarchCategories.FINANCIAL_FEES, FireCategories.MISC],
     [MonarchCategories.CASH_ATM, FireCategories.MISC],
-    [MonarchCategories.INSURANCE, FireCategories.INSURANCE],
+    [MonarchCategories.INSURANCE, FireCategories.MISC],
     [MonarchCategories.TAXES, FireCategories.MISC],
 
     // Expenses - Other
@@ -197,37 +228,6 @@ export const monarchToFireMappings = [
     [MonarchCategories.CREDIT_CARD_PAYMENT, FireCategories.INVESTMENT_TRANSFER],
     [MonarchCategories.BALANCE_ADJUSTMENTS, FireCategories.INVESTMENT_TRANSFER],
 ];
-
-export const FireCategories = {
-  RENT: 'Rent',
-  INTERNET: 'Internet',
-  CELL_PHONE: 'Cell_Phone',
-  UTILITIES: 'Utilities',
-  GROCERIES: 'Groceries',
-  CAR_INSURANCE: 'Car_Insurance',
-  HOME_INSURANCE: 'Home_Insurance',
-  PROPERTY_TAX: 'Property_Tax',
-  GASOLINE: 'Gasoline',
-  CAR: 'Car',
-  HOUSEHOLD_HYGIENE: 'Household_Hygiene',
-  HAIRCUT: 'Haircut',
-  BOOKS_PODCASTS: 'Books_Podcasts',
-  SCHOOL_JOB: 'School_Job',
-  HEALTH_FITNESS: 'Health_Fitness',
-  REAL_ESTATE_INVESTMENT: 'Real_Estate_Investment',
-  RESTAURANTS: 'Restaurants',
-  FAST_FOOD: 'Fast_Food',
-  ALCOHOL_BARS: 'Alcohol_Bars',
-  ENTERTAINMENT: 'Entertainment',
-  SHOPPING: 'Shopping',
-  TRAVEL_VACATION: 'Travel_Vacation',
-  GIFTS_DONATIONS: 'Gifts_Donations',
-  BUSINESS_PORTFOLIO: 'Business_Portfolio',
-  MISC: 'Misc',
-  SALARY: 'Salary',
-  SUPPLEMENTAL_INCOME: 'Supplemental_Income',
-  INVESTMENT_TRANSFER: 'Investment_Transfer'
-};
 
 export const MappingOrder = [
     FireCategories.RENT,
